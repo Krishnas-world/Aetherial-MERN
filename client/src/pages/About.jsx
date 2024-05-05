@@ -13,7 +13,7 @@ export default function About() {
             <div className='col-sm-6 col-md-4'>
               <div className='team-item'>
                 <img src='../' className='team-img' alt='picture'/>
-                <h3>Anirudha Udupa</h3>
+                <h3>Anirudha Udupanvrgbnrb</h3>
                 <div className='team-info'>
                   <p>Team Lead</p>
                   <ul className='team-icon'>
