@@ -13,6 +13,9 @@
     "@clerk/clerk-react": "^5.0.3",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@fortawesome/free-brands-svg-icons": "^6.5.2",
+    "@fortawesome/free-regular-svg-icons": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@mui/icons-material": "^5.15.16",
     "@mui/material": "^5.15.16",
     "flowbite": "^2.3.0",
@@ -20,6 +23,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
+    "react-social-icons": "^6.16.0",
     "typeface-montserrat": "^1.1.13"
   },
   "devDependencies": {
