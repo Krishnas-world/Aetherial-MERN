@@ -1,11 +1,10 @@
 import React from 'react'
-
+import { SocialIcon } from 'react-social-icons'
 export default function About() {
   return (
-    <div>
-      <section className="bg-black">
+      <div className="bg-black" >
         <div className="container">
-          <div className="row align-center">
+          <div className="row ">
             <div className="col-md-12 text-center"><br/>
               <h2 className='section-title text-white text-9xl text-center'>ABOUT US</h2><br/>
               <p className='section-subtitle text-white text-center'>Welcome to AETHERIAL, where innovation meets safety on the open road. We are more than just a helmet; we are a commitment to the well-being of riders. AETHERIAL is a cutting-edge helmet and technology product meticulously crafted to redefine the standards of rider safety.At AETHERIAL, our vision is clear. To provide an unparalleled level of safety for riders who navigate the bustling streets and winding roads. We understand the risks associated with riding, and we are on a mission to eliminate preventable accidents caused by negligence. Our goal is to make every journey on two wheels not just an exhilarating adventure but a safe and secure experience</p>
@@ -20,7 +19,7 @@ export default function About() {
                   <p>Team Lead</p>
                   <ul className='team-icon rounded-lg flex-1'>
                     <li><a href='#' className='instagram '>
-                    <iframe className='fa fa-instagram'></iframe>
+                    <SocialIcon network="github" url="www.vimeo.com" />
                     </a></li>
                     <li><a href='#' className='github'>
                     <iframe className='fa fa-github'></iframe>
@@ -97,7 +96,6 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
   )
 }
