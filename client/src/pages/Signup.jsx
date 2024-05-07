@@ -21,7 +21,7 @@ export default function SignUp() {
     try {
       setLoading(true);
       setErrorMessage(null);
-      const res = await axios.post('/auth/signup', formData, {
+      const res = await axios.post('http://localhost:3000/server/auth/signup', formData, {
         headers: { 'Content-Type': 'application/json' }
       });
       console.log(res);
@@ -56,15 +56,15 @@ export default function SignUp() {
         <form className='mt-5 space-y-4' onSubmit={handleSubmit}>
           <div>
             <Label value='Your username' />
-            <TextInput type='text' placeholder='Username' id='username' onChange={handleChange} required />
+            <TextInput type='text' placeholder='Username' id='username' onChange={handleChange}  />
           </div>
           <div>
             <Label value='Your email' />
-            <TextInput type='email' placeholder='name@company.com' id='email' onChange={handleChange} required />
+            <TextInput type='email' placeholder='name@company.com' id='email' onChange={handleChange}  />
           </div>
           <div>
             <Label value='Your password' />
-            <TextInput type='password' placeholder='Password' id='password' onChange={handleChange} required />
+            <TextInput type='password' placeholder='Password' id='password' onChange={handleChange} />
           </div>
           <Button
             type='submit'

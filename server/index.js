@@ -1,3 +1,4 @@
+const cors = require('cors')
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
@@ -19,9 +20,18 @@ mongoose
     console.log("DB Failed", err);
   });
 
+  app.use(
+    cors({
+      origin: [process.env.FRONTEND_URL],
+      methods: ["POST"],
+      credentials: true,
+    })
+  );
+
 //! Show the routes 
-app.use('/server/user', userRoutes);
-app.use('/server/auth', auth);
+// app.use('/server/user', userRoutes); //test
+app.use('/server/auth', auth); 
+
 
 //! Add error middleware
 app.use((err, req, res, next) => {
