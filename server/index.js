@@ -25,7 +25,7 @@ mongoose
       origin: [process.env.FRONTEND_URL],
       methods: ["POST"],
       credentials: true,
-    })
+    }) 
   );
 
 //! Show the routes 
