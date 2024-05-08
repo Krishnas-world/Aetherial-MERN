@@ -34,12 +34,12 @@ app.use('/server/auth', auth);
 
 
 //! Add error middleware
-app.use((err, req, res, next) => {
+app.use((err, req, res, next) => { 
   const statusCode = err.statusCode || 500;
   const mes = err.mes || 'Internal Server error';
   console.error(err); // Log the error to the console
   res.status(statusCode).json({
-    success: false,
+    success: false, 
     statusCode,
     mes
   });
