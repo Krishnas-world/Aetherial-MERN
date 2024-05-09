@@ -1,3 +1,4 @@
+const cors = require('cors')
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
@@ -9,7 +10,7 @@ dotenv.config() //allows default env files
 app.use(express.json());
 
 //! Set up default mongoose connection
-const mongoDB =process.env.MONGO;
+const mongoDB = process.env.MONGO;
 mongoose
   .connect(mongoDB)
   .then(() => {
@@ -19,23 +20,31 @@ mongoose
     console.log("DB Failed", err);
   });
 
+  app.use(
+    cors({
+      origin: [process.env.FRONTEND_URL],
+      methods: ["POST"],
+      credentials: true,
+    }) 
+  );
+
+//! Show the routes 
+// app.use('/server/user', userRoutes); //test
+app.use('/server/auth', auth); 
+
+
+//! Add error middleware
+app.use((err, req, res, next) => { 
+  const statusCode = err.statusCode || 500;
+  const mes = err.mes || 'Internal Server error';
+  console.error(err); // Log the error to the console
+  res.status(statusCode).json({
+    success: false, 
+    statusCode,
+    mes
+  });
+});
 
 app.listen(3000, () => {
   console.log("Server is running at 3000 !!");
-});
-
-
-//! Show the routes 
-app.use('/', userRoutes);
-app.use('/', auth);
-
-//! Add through middlewares
-app.use((err,req,res,next)=>{
-  const statusCode = err.statusCode || 500;
-  const mes = err.mes || 'Internal Server error'
-  res.status(statusCode).json({
-    success: false,
-    statusCode,
-    mes
-  })
 });

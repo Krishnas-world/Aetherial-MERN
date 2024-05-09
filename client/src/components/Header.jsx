@@ -18,7 +18,7 @@ const Header = () => {
           <img
             src="../../public/favicon.jpeg"
             alt="Aetherial Icon"
-            className="h-8"
+            className="h-8 "
           />
         </span>
         <span className="ml-2" style={{ fontFamily: "Montserrat" }}>
@@ -32,7 +32,7 @@ const Header = () => {
         <Button className="w-14 h-10 hidden sm:inline" color="black" pill>
           <FaMoon /> {/* Added a moon icon to change the theme*/}
         </Button>
-        <Link to="/signin">
+        <Link to="/signup">
           <Button color="" pill>
             <span style={{ fontSize: 19 }}>Sign In</span>
           </Button>

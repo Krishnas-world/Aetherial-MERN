@@ -1,5 +1,6 @@
-import React from 'react';
+import React from 'react';2
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom'
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
           measures to ensure that riders wear their helmets.
         </p>
         <div className="flex justify-center">
-          <Button
+          <Link to='/signup'><Button
             variant='outlined'
             sx={{
               color: 'white',
@@ -37,7 +38,7 @@ export default function Home() {
             }}
           >
             <span id='change'>Login</span>
-          </Button>
+          </Button></Link>
         </div>
       </div>
     </div>
