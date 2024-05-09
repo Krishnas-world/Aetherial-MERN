@@ -1,9 +1,9 @@
 import React from 'react'
-
+import ProfileCard from '../components/Dash'
 export default function Dashboard() {
   return (
     <div>
-      <h1>Dasboard</h1>
+      <ProfileCard></ProfileCard>
     </div>
   )
 }
