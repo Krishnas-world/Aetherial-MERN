@@ -34,7 +34,7 @@ export default function OAuth() {
     } 
   return (
     <Button             style={{backgroundColor:'black'}}
-    type='submit'
+    type='button'
     className='w-full' outline onClick={handleGoogleClick}>
         <AiFillGoogleCircle className='w-6 h-6 mr-2'/>
         Continue with Google
