@@ -1,44 +1,46 @@
+import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
-// import {signInStart,signInSuccess,signInFailure } from '../redux/user/userSlice.js';
-// import { dispatch } from 'react-redux'; //! We use this to distpatch redux works logic
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  signInStart,
+  signInSuccess,
+  signInFailure,
+} from '../redux/user/userSlice';
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const { loading, error: errorMessage } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
   };
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      return setErrorMessage('All fields are required');
+      return dispatch(signInFailure('Please fill all the fields'));
     }
     try {
-      // dispatch(signInStart())
-      const res = await axios.post('http://localhost:3000/server/auth/signin', formData, {
-        headers: { 'Content-Type': 'application/json' }
+      dispatch(signInStart());
+      const res = await fetch('http://localhost:3000/server/auth/signin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
-      if (res.status === 200) {
-        setLoading(false);
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(signInFailure(data.message));
+      }
+
+      if (res.ok) {
+        dispatch(signInSuccess(data));
         navigate('/');
       }
     } catch (error) {
-      setLoading(false);
-      if (error.response && error.response.data) {
-        setErrorMessage(error.response.data.message || 'Internal Server Error');
-      } else {
-        setErrorMessage('Network Error');
-      }
+      dispatch(signInFailure(error.message));
     }
   };
-  
   return (
     <div className='min-h-screen flex items-center justify-center bg-gray-100'>
       <div className='max-w-lg w-full p-8 bg-white bg-opacity-50 rounded shadow-md'>
@@ -51,7 +53,7 @@ export default function SignIn() {
             />
           </Link>
           <p className='text-center text-sm mt-5'>
-            This is a demo project. You can sign in with your email and password
+            You can sign in with your email and password
             or with Google.
           </p>
         </div>
