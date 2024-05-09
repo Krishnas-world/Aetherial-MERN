@@ -3,7 +3,7 @@ import { Global } from "@emotion/react";
 import ReactDOM from 'react-dom'
 export default function About() {
   return (
-    <div className="h-lvh bg-black bg-cover">
+    <div className="h-full bg-black bg-cover ">
       <div className="col-md-15 text-center">
         <br />
         <h2 className="font-bold text-white text-8xl  text-s letter-spacing tracking-wide">
@@ -24,12 +24,12 @@ export default function About() {
         </p>
       </div>
       <br />
-      <div className="flex gap-9 place-content-center ">
-        <div className="col-sm-6 col-md-4 transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-white-500 duration-300 w-auto h-auto rounded-lg p-8 gap-4">
-          <div className="team-item ">
+      <div className="md:flex gap-9 place-content-center text-1xl px-14">
+      <div className="col-sm-6 col-md-4 transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-white-500 duration-300 w-80 h-auto rounded-lg p-8 gap-4">
+          <div className="team-item">
             <img
               src="/Anirudh-min.jpeg"
-              className="team-img rounded-full h-64 w-64"
+              className="team-img rounded-full h-64 w-64 align-content-center"
               alt="picture"
             />
             <br />
@@ -37,12 +37,10 @@ export default function About() {
               Anirudha Udupa
             </h3>
             <div className="team-info">
-              <p className="text-center text-1xl text-black-400 ">Team Lead</p>
-              <ul className="bg-black">
-                <li>
-                  <i icon="fa fa-instagram"></i>
-                </li>
-              </ul>
+              <p className="text-center text-1xl text-black-400 ">
+                Team Lead
+              </p>
+              <ul className="team-icon"></ul>
             </div>
           </div>
         </div>
@@ -65,7 +63,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="col-sm-6 col-md-4 transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-white-500 duration-300 w-auto h-auto rounded-lg p-8 gap-4">
+        <div className="col-sm-6 col-md-4 transition ease-in-out delay-150 bg-white hover:-translate-y-1 hover:scale-110 hover:bg-white-500 duration-300 w-80 h-auto rounded-lg p-8 gap-4">
           <div className="team-item">
             <img
               src="/navneet-min.jpeg"
@@ -80,7 +78,7 @@ export default function About() {
               <p className="text-center text-1xl text-black-400 ">
                 Hardware Analyst
               </p>
-              <ul className="team-icon display: inline-flex flex-row"></ul>
+              <ul className="team-icon"></ul>
             </div>
           </div>
         </div>
@@ -93,10 +91,10 @@ export default function About() {
             />
             <br />
             <h3 className="text-center text-2xl text-black-400 m-3">
-              Anirudha Udupa
+              Jonathan Dsoza
             </h3>
             <div className="team-info">
-              <p className="text-center text-1xl text-black-400 ">Team Lead</p>
+              <p className="text-center text-1xl text-black-400 ">Research & Development</p>
               <ul className="team-icon display: inline-flex flex-row"></ul>
             </div>
             <br />
