@@ -1,7 +1,7 @@
-import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
 
 export default function SignUp() {
   const [formData, setFormData] = useState({});
@@ -16,7 +16,7 @@ export default function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.username || !formData.email || !formData.password) {
-      return setErrorMessage('Please fill out all fields.');
+      return setErrorMessage('All fields are required');
     }
     try {
       setLoading(true);
@@ -24,29 +24,29 @@ export default function SignUp() {
       const res = await axios.post('http://localhost:3000/server/auth/signup', formData, {
         headers: { 'Content-Type': 'application/json' }
       });
-      console.log(res);
-      if (res.data.success === false) {
-        return setErrorMessage(res.data.message);
-      }
-      setLoading(false);
       if (res.status === 200) {
+        setLoading(false);
         navigate('/');
       }
     } catch (error) {
-      setErrorMessage(error.message);
       setLoading(false);
+      if (error.response && error.response.data) {
+        setErrorMessage(error.response.data.message || 'Internal Server Error');
+      } else {
+        setErrorMessage('Network Error');
+      }
     }
   };
   
   return (
     <div className='min-h-screen flex items-center justify-center bg-gray-100'>
-      <div className='max-w-3xl mx-auto p-8 bg-white bg-opacity-50 rounded shadow-md'>
+      <div className='max-w-lg w-full p-8 bg-white bg-opacity-50 rounded shadow-md'>
         <div className='flex flex-col items-center'>
-          <Link to='/' className='font-bold text-4xl'>
+          <Link to='/' className='font-bold dark:text-white text-4xl'>
             <img
               src={'/favicon.jpeg'}
               alt="Aetherial Icon"
-              className="h-20"
+              className="h-56 m-10"
             />
           </Link>
           <p className='text-center text-sm mt-5'>
@@ -56,20 +56,36 @@ export default function SignUp() {
         <form className='mt-5 space-y-4' onSubmit={handleSubmit}>
           <div>
             <Label value='Your username' />
-            <TextInput type='text' placeholder='Username' id='username' onChange={handleChange}  />
+            <TextInput
+              type='text'
+              placeholder='Username'
+              id='username'
+              onChange={handleChange}
+            />
           </div>
           <div>
             <Label value='Your email' />
-            <TextInput type='email' placeholder='name@company.com' id='email' onChange={handleChange}  />
+            <TextInput
+              type='email'
+              placeholder='name@company.com'
+              id='email'
+              onChange={handleChange}
+            />
           </div>
           <div>
             <Label value='Your password' />
-            <TextInput type='password' placeholder='Password' id='password' onChange={handleChange} />
+            <TextInput
+              type='password'
+              placeholder='*********'
+              id='password'
+              onChange={handleChange}
+            />
           </div>
           <Button
             type='submit'
             disabled={loading}
             style={{backgroundColor:'black'}}
+            className='w-full'
           >
             {loading ? (
               <>
@@ -81,7 +97,7 @@ export default function SignUp() {
             )}
           </Button>
         </form>
-        <div className='flex gap-2 text-sm mt-5'>
+        <div className='flex gap-2 text-sm mt-5 justify-center'>
           <span>Have an account?</span>
           <Link to='/signin' className='text-blue-500'>
             Sign In
