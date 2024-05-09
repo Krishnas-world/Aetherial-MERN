@@ -29,7 +29,7 @@ export default function About() {
           <div className="team-item">
             <img
               src="/Anirudh-min.jpeg"
-              className="team-img rounded-full h-64 w-64 align-content-center"
+              className="team-img rounded-full h-64 w-64 flex"
               alt="picture"
             />
             <br />
