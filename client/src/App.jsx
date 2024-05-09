@@ -11,6 +11,7 @@ import Footer from './components/FooterComp';
 
 // Fonts
 import "typeface-montserrat";
+import PrivateRoute from './components/PrivateRoute';
 
 export default function App() {
   return (
@@ -21,7 +22,9 @@ export default function App() {
         <Route path="/about" element={<About/>} />
         <Route path="/signin" element={<Signin/>} />
         <Route path="/signup" element={<Signup/>} />
+        <Route element={<PrivateRoute/>}>
         <Route path="/dashboard" element={<Dashboard/>} />
+        </Route>
         <Route path="/projects" element={<Projects/>} />
       </Routes>
     <Footer/>
