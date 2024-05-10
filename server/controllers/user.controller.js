@@ -4,4 +4,10 @@ const test = (req,res)=>{
     })
 }
 
+const signout = (req,res,next)=>{
+    try{
+        res.clearCookie('access_token')
+    }
+}
+
 module.exports = test;
