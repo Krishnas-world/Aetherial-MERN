@@ -1,10 +1,11 @@
-import React from 'react';2
+import React from 'react';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 export default function Home() {
   const { currentUser } = useSelector((state) => state.user);
+
   return (
     <div className='min-h-screen flex justify-center items-center relative bg-gradient-to-b from-opacity-50 to-black' style={{backgroundImage: "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.985)), url('/helmet.jpeg')", backgroundSize: 'cover'}}>
       {/* Content */}
@@ -19,28 +20,57 @@ export default function Home() {
           measures to ensure that riders wear their helmets.
         </p>
         <div className="flex justify-center">
-          <Link to='/signup'><Button
-            variant='outlined'
-            sx={{
-              color: 'white',
-              paddingLeft: '2em',
-              paddingRight: '2em',
-              paddingTop: '1em',
-              paddingBottom: '1em',
-              borderColor: 'white',
-              fontFamily: 'Montserrat',
-              fontSize: 17,
-              '&:hover': {
-                borderColor: 'white',
-                backgroundColor: 'rgba(255,255,255,0.1)',
-              },
-              '& #change': {
-                color: 'white',
-              },
-            }}
-          >
-            <span id='change'>Login</span>
-          </Button></Link>
+          {currentUser ? (
+            <Link to='/dashboard'>
+              <Button
+                variant='outlined'
+                sx={{
+                  color: 'white',
+                  paddingLeft: '2em',
+                  paddingRight: '2em',
+                  paddingTop: '1em',
+                  paddingBottom: '1em',
+                  borderColor: 'white',
+                  fontFamily: 'Montserrat',
+                  fontSize: 17,
+                  '&:hover': {
+                    borderColor: 'white',
+                    backgroundColor: 'rgba(255,255,255,0.1)',
+                  },
+                  '& #change': {
+                    color: 'white',
+                  },
+                }}
+              >
+                <span id='change'>Hello, {currentUser.username}</span>
+              </Button>
+            </Link>
+          ) : (
+            <Link to='/signup'>
+              <Button
+                variant='outlined'
+                sx={{
+                  color: 'white',
+                  paddingLeft: '2em',
+                  paddingRight: '2em',
+                  paddingTop: '1em',
+                  paddingBottom: '1em',
+                  borderColor: 'white',
+                  fontFamily: 'Montserrat',
+                  fontSize: 17,
+                  '&:hover': {
+                    borderColor: 'white',
+                    backgroundColor: 'rgba(255,255,255,0.1)',
+                  },
+                  '& #change': {
+                    color: 'white',
+                  },
+                }}
+              >
+                <span id='change'>Login</span>
+              </Button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
