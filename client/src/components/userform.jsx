@@ -2,15 +2,15 @@
 import React from 'react';
 
 const inputClasses = "shadow appearance-none border rounded w-full py-2 px-3 text-zinc-700 leading-tight focus:outline-none focus:shadow-outline";
-const labelClasses = "block text-zinc-700 text-sm font-bold mb-2";
-const buttonClasses = "bg-black hover:bg-zinc-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline";
+const labelClasses = "block text-white text-sm font-bold mb-2 w-screen";
+const buttonClasses = "bg-white hover:bg-zinc-700 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline";
 
 const SignUpForm = () => {
   return (
-    <div className="bg-zinc-100 p-8">
-      <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow">
+    <div className="bg-black  p-8">
+      <div className="max-w-lg mx-auto bg-gray p-6 rounded-lg shadow">
         <form>
-          <div className="mb-4">
+          <div className="mb-4 bg-gray">
             <label htmlFor="name" className={labelClasses}>Your Name</label>
             <input type="text" id="name" name="name" placeholder="Full Name" className={inputClasses} />
           </div>
