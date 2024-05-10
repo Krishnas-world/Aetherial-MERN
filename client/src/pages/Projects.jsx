@@ -3,6 +3,10 @@ import React from 'react';
 import FeatureCard from '../components/Features';
 import ContactForm from '../components/ContactUs';
 import ProfileCard from '../components/Dash';
+
+import SignUpForm from '../components/userform';
+
+
 const sharedClasses = {
   cardContainer: 'flex gap-8',
   card: 'p-6 rounded-lg w-64',
@@ -54,6 +58,10 @@ const PricingComponent = () => {
 <FeatureCard/><br/><br/><br/><br/>
 <ContactForm/>
 <ProfileCard/>
+
+<SignUpForm/>
+=======
+
     </div>
   );
 };
