@@ -2,9 +2,8 @@
 import React from 'react';
 import FeatureCard from '../components/Features';
 import ContactForm from '../components/ContactUs';
-import ProfileCard from '../components/Dash';
 
-import SignUpForm from '../components/userform';
+import SignUpForm from '../components/Userform';
 
 
 const sharedClasses = {
@@ -57,7 +56,6 @@ const PricingComponent = () => {
       <br/><br/><br/><br/>
 <FeatureCard/><br/><br/><br/><br/>
 <ContactForm/>
-<ProfileCard/>
 
 <SignUpForm/>
 =======

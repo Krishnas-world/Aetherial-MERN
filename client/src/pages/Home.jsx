@@ -1,8 +1,10 @@
 import React from 'react';2
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
 export default function Home() {
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <div className='min-h-screen flex justify-center items-center relative bg-gradient-to-b from-opacity-50 to-black' style={{backgroundImage: "linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.985)), url('/helmet.jpeg')", backgroundSize: 'cover'}}>
       {/* Content */}
